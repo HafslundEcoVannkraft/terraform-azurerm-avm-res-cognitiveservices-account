@@ -112,7 +112,6 @@ resource "azurerm_cognitive_account_customer_managed_key" "this" {
 
 resource "azurerm_cognitive_deployment" "this" {
   for_each = var.cognitive_deployments
-
   cognitive_account_id   = azurerm_cognitive_account.this.id
   name                   = each.value.name
   rai_policy_name        = each.value.rai_policy_name
@@ -137,6 +136,8 @@ resource "azurerm_cognitive_deployment" "this" {
       update = timeouts.value.update
     }
   }
+
+
 
   depends_on = [
     azurerm_cognitive_account_customer_managed_key.this

@@ -38,12 +38,19 @@ variable "cognitive_deployments" {
       name    = string
       version = string
     })
-    scale = object({
-      capacity = optional(number)
-      family   = optional(string)
-      size     = optional(string)
-      tier     = optional(string)
-      type     = string
+    # scale = object({
+    #   capacity = optional(number)
+    #   family   = optional(string)
+    #   size     = optional(string)
+    #   tier     = optional(string)
+    #   type     = string
+    # })
+    sku = object({
+      name    = string
+      tier    = optional(string)
+      size    = optional(string)
+      family  = optional(string)
+      capcity = optional(number)
     })
     timeouts = optional(object({
       create = optional(string)
